@@ -1,0 +1,16 @@
+server:
+  port: 8080
+spring:
+  h2.console:
+    enabled: true
+    path: /console
+  datasource:
+    url: jdbc:h2:C:/dev/projects/sandwichBar/sandwichBar
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+
+
