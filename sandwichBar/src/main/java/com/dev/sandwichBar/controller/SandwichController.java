@@ -45,7 +45,7 @@ public class SandwichController {
     @PutMapping("/{id}")
     ResponseEntity<Boolean> addComponentToSandwich(@PathVariable int id,@RequestBody String compName) {
 
-        if (!sandwichRepository.existsById(id)) {
+        if (!sandwichRepository.existsById(id) || compName.isBlank()) {
             return ResponseEntity.notFound().build();
         }
 
@@ -54,9 +54,11 @@ public class SandwichController {
 
 
         if (sandwichComponent == null) {
+            System.out.println("Error while adding component");
             return ResponseEntity.notFound().build();
         }
 
+        System.out.println("Component added correctly");
         return ResponseEntity.ok(sandwich.addComponent(sandwichComponent));
 
     }
